@@ -11,6 +11,7 @@ Express é um framework javascript. O que siginifica que,
 ele vai integrar diretamento com o server-side atuando como uma API, pode utilizar com o super set do JS, e facilita muito a criação de app utilizando Nodejs e JavaScript 
 
 2.1.4 O que você entende como rotas da aplicação?
+Rotas entende-se como uma navegação e fazendo integração diretamento com express, ou seja, ela vai ficar responsável por fazer toda a parte de navegação quando for utlizar os verbos HTTP.
 
 2.1.5 Quando é recomendado utilizar destruturação?
 
