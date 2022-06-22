@@ -31,3 +31,6 @@ Utilizando o comando npm run build ou com yarn -> yarn build , gera uma pasta di
 2.1.8 Defina Clean Architecture e sua aplicação no projeto.
 
 2.1.9 O que é uma API Rest?
+São conjunto de boas práticas de programação utilizando o framework express do JS em conjunto com server-side utilizando o Node.js
+exemplo1: Comunicação de dados utilizando express e node
+exemplo2: Utiliza-se em sua grande parte em aplicações express os verbos em requisições HTTP como o GET, PUT, DELETE, POST entre outras mais
