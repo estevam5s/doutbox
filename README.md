@@ -14,6 +14,10 @@ ele vai integrar diretamento com o server-side atuando como uma API, pode utiliz
 Rotas entende-se como uma navegação e fazendo integração diretamento com express, ou seja, ela vai ficar responsável por fazer toda a parte de navegação quando for utlizar os verbos HTTP.
 
 2.1.5 Quando é recomendado utilizar destruturação?
+Serve como um meio para desempacontar um objeto, seja ele em linguagens com JS e TS, ou seja, podemos ter um código mais Clean-code, um código limpo melhor assim dizendo.
+Caso queira depois utlizar essas propriedades dentro do objeto em uma requisição HTTP, utiliza o conceito de spread: ...arryValores também muito utlizado em métodos de array com forEach()
+e iterações com for.
+Caso queira também fazer importações de lib, terá que utilizar a sintaxe: from {} import ''; -> Isso em TS
 
 2.1.6 Explique o funcionamento do Babel para aplicação?
 
