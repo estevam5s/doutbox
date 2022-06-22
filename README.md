@@ -24,6 +24,9 @@ Babel é um transpilado JS, o que significa que ele vai fazer toda a parte de ut
 cause erro na hora da produção
 
 2.1.7 Porque devemos utilizar webpack para aplicações em produção?
+webpack é um empacotador de pacotes, ou seja, ele pode em produção dimuir o arquivo de grande quantidade de memória para um arquivo mais rápido e performático
+que no caso seria o ideal para uma aplicação.
+Utilizando o comando npm run build ou com yarn -> yarn build , gera uma pasta dist estão estarão as versões de arquivos com mais performace
 
 2.1.8 Defina Clean Architecture e sua aplicação no projeto.
 
