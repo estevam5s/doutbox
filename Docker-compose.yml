@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:8.0.0
+    environment:
+      MYSQL_ROOT_USER: "root"
+      MYSQL_ROOT_PASSWORD: "user"
+      MYSQL_DATABASE: "prisma"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/renatogroffe/Desenvolvimento/Docker/Volumes/MySql:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+networks: 
+  mysql-compose-network:
+    driver: bridge
