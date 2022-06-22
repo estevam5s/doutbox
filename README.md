@@ -20,6 +20,8 @@ e iterações com for.
 Caso queira também fazer importações de lib, terá que utilizar a sintaxe: from {} import ''; -> Isso em TS
 
 2.1.6 Explique o funcionamento do Babel para aplicação?
+Babel é um transpilado JS, o que significa que ele vai fazer toda a parte de utilizar um ECMAscript de uma versão anterior para que o browser aceite ela e não
+cause erro na hora da produção
 
 2.1.7 Porque devemos utilizar webpack para aplicações em produção?
 
