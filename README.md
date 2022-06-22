@@ -7,6 +7,8 @@ O NPM é um gerenciador de pacotes do node, o que significa que, ele vai fazer t
 Express, prisma, jsonwebtoken, ts-node & nodemon
 
 2.1.3 Qual a funcionalidade do express?
+Express é um framework javascript. O que siginifica que,
+ele vai integrar diretamento com o server-side atuando como uma API, pode utilizar com o super set do JS, e facilita muito a criação de app utilizando Nodejs e JavaScript 
 
 2.1.4 O que você entende como rotas da aplicação?
 
