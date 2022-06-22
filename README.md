@@ -4,6 +4,7 @@
 O NPM é um gerenciador de pacotes do node, o que significa que, ele vai fazer toda a parte de gerencimento e instalações de pacotes para cada um tem o seu papel desempenhado
 
 2.1.2 Quais as principais bibliotecas JavaScript que você já trabalhou?
+Express, prisma, jsonwebtoken, ts-node & nodemon
 
 2.1.3 Qual a funcionalidade do express?
 
