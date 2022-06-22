@@ -1,6 +1,7 @@
 ## 2 Nodejs
 # 2.1 Perguntas Técnicas
 2.1.1 O que é NPM e sua aplicação dentro do projeto?
+O NPM é um gerenciador de pacotes do node, o que significa que, ele vai fazer toda a parte de gerencimento e instalações de pacotes para cada um tem o seu papel desempenhado
 
 2.1.2 Quais as principais bibliotecas JavaScript que você já trabalhou?
 
