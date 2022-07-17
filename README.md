@@ -1,36 +1,176 @@
-## 2 Nodejs
-# 2.1 Perguntas Técnicas
-2.1.1 O que é NPM e sua aplicação dentro do projeto?
-O NPM é um gerenciador de pacotes do node, o que significa que, ele vai fazer toda a parte de gerencimento e instalações de pacotes para cada um tem o seu papel desempenhado
+---
+title: Express MySQL
+description: An Express server that connects to a MySQL database
+tags:
+  - express
+  - MySQL
+  - typescript
+---
 
-2.1.2 Quais as principais bibliotecas JavaScript que você já trabalhou?
-Express, prisma, jsonwebtoken, ts-node & nodemon
+# Exemplo de Express com MySQL
 
-2.1.3 Qual a funcionalidade do express?
-Express é um framework javascript. O que siginifica que,
-ele vai integrar diretamento com o server-side atuando como uma API, pode utilizar com o super set do JS, e facilita muito a criação de app utilizando Nodejs e JavaScript 
+This example starts an [Express](https://expressJS.com/) server that connects
+to a Railway MySQL database.
 
-2.1.4 O que você entende como rotas da aplicação?
-Rotas entende-se como uma navegação e fazendo integração diretamento com express, ou seja, ela vai ficar responsável por fazer toda a parte de navegação quando for utlizar os verbos HTTP.
+## ✨ Features
 
-2.1.5 Quando é recomendado utilizar destruturação?
-Serve como um meio para desempacontar um objeto, seja ele em linguagens com JS e TS, ou seja, podemos ter um código mais Clean-code, um código limpo melhor assim dizendo.
-Caso queira depois utlizar essas propriedades dentro do objeto em uma requisição HTTP, utiliza o conceito de spread: ...arryValores também muito utlizado em métodos de array com forEach()
-e iterações com for.
-Caso queira também fazer importações de lib, terá que utilizar a sintaxe: from {} import ''; -> Isso em TS
+- express
+- MySQL
+- typescript
+- docker
+- ORM (Prisma)
 
-2.1.6 Explique o funcionamento do Babel para aplicação?
-Babel é um transpilado JS, o que significa que ele vai fazer toda a parte de utilizar um ECMAscript de uma versão anterior para que o browser aceite ela e não
-cause erro na hora da produção
+-------------------------------
 
-2.1.7 Porque devemos utilizar webpack para aplicações em produção?
-webpack é um empacotador de pacotes, ou seja, ele pode em produção dimuir o arquivo de grande quantidade de memória para um arquivo mais rápido e performático
-que no caso seria o ideal para uma aplicação.
-Utilizando o comando npm run build ou com yarn -> yarn build , gera uma pasta dist estão estarão as versões de arquivos com mais performace
+## Quick Start
 
-2.1.8 Defina Clean Architecture e sua aplicação no projeto.
+    docker run --name nome-do-container -p 3306:3306 -p 33060:33060 -e MYSQL_ROOT_HOST='%' -e MYSQL_ROOT_PASSWORD='sua-senha' -d mysql/mysql-server:8.0.0
 
-2.1.9 O que é uma API Rest?
-São conjunto de boas práticas de programação utilizando o framework express do JS em conjunto com server-side utilizando o Node.js
-exemplo1: Comunicação de dados utilizando express e node
-exemplo2: Utiliza-se em sua grande parte em aplicações express os verbos em requisições HTTP como o GET, PUT, DELETE, POST entre outras mais
+> **Tem a possibilidade de usar no docker compose?** Claro, no termina, após ter criado o arquivo **package.json** basta agora usar no CLI:  ```docker-compose up``` :
+
+```javascript
+version: '3'
+
+services:
+  mysqlsrv:
+    image: mysql:8.0.0
+    environment:
+      MYSQL_ROOT_USER: "root"
+      MYSQL_ROOT_PASSWORD: "user"
+      MYSQL_DATABASE: "prisma"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/renatogroffe/Desenvolvimento/Docker/Volumes/MySql:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+networks: 
+  mysql-compose-network:
+    driver: bridge
+```
+
+Open your browser to https://localhost
+
+-------------------------------
+
+## Installation
+
+* [Single Node Install](https://rancher.com/docs/rancher/v2.x/en/installation/single-node/)
+* [High Availability (HA) Install](https://www.docker.com/products/docker-desktop/)
+
+> **É obrigatório baixar nos links acima?**  Um dos links acima não será obrigatório para fazer uso no projeto
+
+### Minimum Requirements
+
+* Sistemas Operacionais
+  * De preferência o linux.
+    * Mas pode usar o Windows com WSL. 
+* Hardware & Software
+* Node.js
+* code-server
+  * Veja como usar o mesmo:
+    > **Como pode usar essa funcionalidade?**  Basta usar a imagem do code-server e depois usar um container
+    > **Vamos usar o docker-compose.yaml**
+
+    ```javascript
+      version: "2.1"
+      services:
+        code-server:
+          image: lscr.io/linuxserver/code-server:latest
+          container_name: code-server
+          environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+            - PASSWORD=password #optional
+            - HASHED_PASSWORD= #optional
+            - SUDO_PASSWORD=password #optional
+            - SUDO_PASSWORD_HASH= #optional
+            - PROXY_DOMAIN=code-server.my.domain #optional
+            - DEFAULT_WORKSPACE=/config/workspace #optional
+          volumes:
+            - /path/to/appdata/config:/config
+          ports:
+            - 8443:8443
+          restart: unless-stopped
+    ```
+
+## Prerequisites
+
+To successfully finish this guide, you'll need:
+
+- Node.js
+- A MySQL Database (set up a free MySQL database on Heroku)
+- A GitHub Account (to create an OAuth app)
+- A Vercel Account (to deploy the app)
+- Docker (to run the app)
+- Docker Compose (to run the app)
+
+## 💁‍♀️ How to use
+
+- Install dependencies `npm i`
+- Migrations `npm prisma migrate dev`
+- Prisma Studio `npx prisma studio`
+- Start the server `npm run dev`
+- Open your browser to https://localhost
+- Open your Insomnia to https://localhost
+
+-------------------------------
+### `Usage`
+
+Load package.json and configure the package:
+
+**package.json**
+```typescript
+{
+  "name": "doutbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:dev": "npx prisma migrate dev",
+    "nodemon": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/app.ts ---delay 1000ms",
+    "dev": "npx ts-node ./src/app.ts",
+    "build": "sucrase ./src -d ./dist --transforms typescript,imports",
+    "node": "ts-node ./src/app.ts",
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Estevamsl/doutbox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Estevamsl/doutbox/issues"
+  },
+  "homepage": "https://github.com/Estevamsl/doutbox#readme",
+  "dependencies": {
+    "@prisma/client": "^3.15.2",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.16",
+    "sucrase": "^3.21.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "eslint": "^8.18.0",
+    "prisma": "^3.15.2",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  }
+}
+```
+
+-------------------------------
+
+## 📝 Notes
+
+O servidor iniciado simplesmente retorna o tempo atual no banco de dados. O SQL
+consulta está localizada em `src/app.ts`.
