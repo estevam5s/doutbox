@@ -174,3 +174,7 @@ Load package.json and configure the package:
 
 O servidor iniciado simplesmente retorna o tempo atual no banco de dados. O SQL
 consulta está localizada em `src/app.ts`.
+
+### If you like my projects and want to support me to build more cool open source projects
+ 
+<a href="https://www.buymeacoffee.com/estevamsl"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=VaibhavJaiswal&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
