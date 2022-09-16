@@ -7,6 +7,7 @@ tags:
   - typescript
 ---
 
+
 # Exemplo de Express com MySQL
 
 This example starts an [Express](https://expressJS.com/) server that connects
